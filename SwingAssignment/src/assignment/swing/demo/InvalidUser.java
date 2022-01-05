@@ -10,3 +10,4 @@ public class InvalidUser extends JFrame{
 	        setSize(400, 200); 
 }
 }
+//username,password,address(textbox(scroller)),age,dob(date calender), gender(combo box),submit ,clear

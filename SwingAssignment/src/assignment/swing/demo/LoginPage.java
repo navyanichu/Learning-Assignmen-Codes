@@ -1,5 +1,7 @@
 package assignment.swing.demo;
-
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,14 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
+  
 public class LoginPage {
-	JTextField text, value;
+	
 
 	public static void main(String[] args) {
-
 		
-		JFrame frame = new JFrame("Login");
+		JFrame frame = new JFrame("User Login");
 		JLabel label = new JLabel();
 		label.setBounds(20, 150, 200, 50);
 		
@@ -47,11 +48,17 @@ public class LoginPage {
 	        if (userValue.equals("quest123") && passValue.equals("quest")) {   
 	        	
 	        	//If it is a valid user a pop up window will appear showing Welcome
-	        	ValidUser page = new ValidUser();   
-
-	            page.setVisible(true);  
-	            JLabel valid_label = new JLabel("Welcome: "+userValue);
-	            page.getContentPane().add(valid_label); 
+	        	RegistrationPage regPage = new RegistrationPage();   
+	        	
+//	            JLabel success_label = new JLabel("Successfull Login..");
+//	            success_label.setBounds(89, 30, 200, 50);
+//	            JLabel valid_label = new JLabel();
+//	            valid_label.setText( "Welcome: "+userValue);
+//	            success_label.setHorizontalAlignment(JLabel.CENTER);
+//	            valid_label.setHorizontalAlignment(JLabel.CENTER);
+//	            page.getContentPane().add(success_label);
+//	            page.getContentPane().add(valid_label); 
+//	            page.getContentPane().setBackground(Color.GREEN);
 	        }  
 	        else{  
 	        	
@@ -59,8 +66,12 @@ public class LoginPage {
  
 	        	 InvalidUser page = new InvalidUser();
 	        	 page.setVisible(true);  
-		            JLabel invalid_label = new JLabel("Please enter valid username and password");
+		            JLabel invalid_label = new JLabel();
+		            invalid_label.setText("<html>Invalid credentials !!<br/>Please enter the valid username and password </html>");
+		           
+		            invalid_label.setHorizontalAlignment(JLabel.CENTER);
 		            page.getContentPane().add(invalid_label);
+		            page.getContentPane().setBackground(Color.orange);
 	        }  
 	    }}
 	
@@ -78,16 +89,18 @@ public class LoginPage {
 		});
 		
 		//adding all elements to frame
+		frame.add(label);
+		frame.add(user);
 		frame.add(pass);
 		frame.add(userLabel);
-		frame.add(label);
 		frame.add(passLabel);
 		frame.add(submit);
-		frame.add(user);
 		frame.add(reset);
 		frame.setSize(300, 300);
 		frame.setLayout(null);
 		frame.setVisible(true);
-
+		frame.setDefaultCloseOperation(javax.swing.  
+		        WindowConstants.DISPOSE_ON_CLOSE);
+		
 	}
 }
